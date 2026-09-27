@@ -15,11 +15,4 @@ CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://localhost
 # GitHub OAuth
 GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID", "")
 GITHUB_CLIENT_SECRET = os.environ.get("GITHUB_CLIENT_SECRET", "")
-
-# 阿里云 OSS 配置
-OSS_ACCESS_KEY_ID = os.environ["OSS_ACCESS_KEY_ID"]
-OSS_ACCESS_KEY_SECRET = os.environ["OSS_ACCESS_KEY_SECRET"]
-OSS_BUCKET_NAME = os.environ["OSS_BUCKET_NAME"]
-OSS_ENDPOINT = os.environ["OSS_ENDPOINT"]
-OSS_CUSTOM_DOMAIN = os.environ["OSS_CUSTOM_DOMAIN"]
-OSS_PREFIX = os.environ["OSS_PREFIX"]
+# 上传目录由 app/main.py 挂载到 /uploads。

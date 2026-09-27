@@ -8,3 +8,4 @@ venv/
 *.db
 dist/
 node_modules/
+uploads/

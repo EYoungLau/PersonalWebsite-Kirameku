@@ -190,11 +190,7 @@ DATABASE_URL=postgresql://user:password@host:5432/dbname
 # JWT
 SECRET_KEY=your-secret-key
 
-# 阿里云 OSS
-OSS_ACCESS_KEY_ID=your-access-key-id
-OSS_ACCESS_KEY_SECRET=your-access-key-secret
-OSS_ENDPOINT=oss-cn-xxx.aliyuncs.com
-OSS_BUCKET=your-bucket-name
+# 新上传图片存放在 Kirameku-backend/uploads/，无需 OSS 密钥。
 ```
 
 ## 设计亮点
