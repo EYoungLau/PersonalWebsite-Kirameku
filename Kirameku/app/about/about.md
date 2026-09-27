@@ -1,30 +1,34 @@
 ---
-cover: "/images/2.webp"
+# 替换：可填写 /images/你的封面.jpg；留空使用 siteConfig.ts 的 aboutCover。
+cover: ""
 ---
 
-## 你好，我是 Starhiro
+<!-- 替换下方正文；昵称和头像统一在 siteConfig.ts 修改，不必在这里重复填写。 -->
+## 自我介绍
 
-一位在读软件工程的大二学生，喜欢折腾技术，偶尔写写博客记录生活。
+我是Liu Yiyang Hank，一名就读于香港理工大学计算机科学专业的大二学生。
 
-## 关于这个博客
+## 关于这个网站
 
-这个博客使用 **Next.js 16 + React 19 + Tailwind CSS 4** 构建，采用玻璃拟态（Glassmorphism）设计风格。在这里你可以看到我写的技术文章、日常说说、一起聊天的杂谈，还有照片墙和左下角内置的一些实用小工具。
+<!-- 替换：介绍你建站的目的和准备分享的内容。 -->
+这是随手搭建的个人blog，会记录一些杂七杂八的事情。也可以通过这个blog来了解我~
 
-## 技术栈
+## 技能与经验
 
-- **主力：** Spring Boot, Vue, React, Next.js, Python
-- **略懂：** LangChain, Flutter, Kotlin
-- **其他：** Git, Docker, Linux, TypeScript, Tailwind CSS
+<!-- 替换：每行一项；可以继续添加或删除列表项。 -->
+- OpenCV, Python
+- Java, C++
 
 ## 兴趣爱好
 
-- 写代码，折腾各种项目
-- 听音乐，偶尔看看动漫
-- 爱运动，喜欢跑步
+- 捣鼓一些电脑相关的东西
+- 钢琴篮球看番打游戏（
 
 ## 联系我
 
-- **GitHub：** [github.com/Xinghongia](https://github.com/Xinghongia)
-- **Email：** [3376219386@qq.com](mailto:3376219386@qq.com)
+<!-- 替换：填写你的联系方式；不需要的条目直接删除。首页联系方式在 siteConfig.ts 的 social 中设置。 -->
+- **邮箱：** lyiyang2006@gmail.com
+- **Github主页：** https://github.com/EYoungLau
 
-> Stay hungry, stay foolish. —— 求知若饥，虚心若愚。
+<!-- 替换：你的座右铭；不需要时可删除这一行。 -->
+> Stay Hungry, Stay Foolish.

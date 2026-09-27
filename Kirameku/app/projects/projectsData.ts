@@ -16,50 +16,23 @@ export interface Project {
   statusLabel: string;
 }
 
+// 替换：复制下面的对象添加项目，id 保持唯一；没有项目时可以使用空数组 []。
 export const projects: Project[] = [
   {
-    id: "haxatom",
-    name: "HAXAtom",
-    description: "原子化解耦 · 乐高式拼装 — 全栈 AI 智能体管理与多端分发平台",
-    longDescription:
-      "基于 LangChain/LangGraph 的 AI 智能体管理平台，支持 RAG 知识库、可视化 Agent 编排、多渠道分发（Web、飞书、钉钉、QQ、Telegram）。采用原子化架构设计，模块可自由组合，乐高式拼装。",
-    coverImage: "/images/projects/haxatom.webp",
-    techStack: ["Python", "Vue 3", "FastAPI", "LangChain", "LangGraph", "RAG"],
+    id: "Air_giutar", // 替换：唯一项目标识，建议使用英文和连字符。
+    name: "Air_giutar On iPad by Swift",
+    description: "使用Swift，在iPad上通过前置摄像头识别手势，演奏吉他和弦",
+    longDescription: "使用Swift，在iPad上通过前置摄像头识别手势，演奏吉他和弦。主要应用Swift Vision库制作。项目在复杂背景下的识别准确率有待提高。",
+    coverImage: "/images/cover-placeholder.svg", // 替换：项目封面图片路径。
+    techStack: ["Swift"], // 替换：例如 ["Python", "React"]。
     links: {
-      github: "https://github.com/Xinghongia/HAXAtom",
+      github: "", // 替换：项目 GitHub 地址，留空隐藏。
+      gitee: "", // 替换：项目 Gitee 地址，留空隐藏。
+      live: "", // 替换：线上演示地址，留空隐藏。
+      docs: "", // 替换：文档地址，留空隐藏。
     },
-    featured: true,
-    status: "active",
-    statusLabel: "维护中",
-  },
-  {
-    id: "starvid",
-    name: "StarVid 星河",
-    description: "全功能即时通讯社交应用 — 实时聊天、好友管理、群组、朋友圈",
-    longDescription:
-      "前后端分离架构的 IM 社交应用，支持文本/图片/语音/视频/文件消息、好友管理、群聊 @ 功能、朋友圈动态、WebSocket 实时推送、JWT 双令牌认证。前端 Flutter + GetX，后端 Spring Boot + MyBatis-Plus + MySQL + Redis。",
-    coverImage: "/images/projects/starvid.webp",
-    techStack: ["Flutter", "Spring Boot", "MySQL", "Redis", "WebSocket", "GetX", "MyBatis-Plus"],
-    links: {
-      gitee: "https://gitee.com/hongzyh/xinhe",
-    },
-    featured: false,
-    status: "active",
-    statusLabel: "开发中",
-  },
-  {
-    id: "hiromu-top",
-    name: "hiromu.top",
-    description: "资源分享站点",
-    longDescription:
-      "基于 Vue 构建的资源分享网站，提供丰富的前端交互体验和优质的资源分享。",
-    coverImage: "/images/projects/hiromu-top.webp",
-    techStack: ["Vue", "APlayer", "Live2D", "CSS3"],
-    links: {
-      live: "https://hiromu.top/",
-    },
-    featured: false,
-    status: "active",
-    statusLabel: "已上线",
+    featured: true, // 替换：是否标记为精选项目。
+    status: "active", // 可选 active（维护中）、archived（已归档）、developing（开发中）。
+    statusLabel: "迭代维护中", // 替换：展示给访客的状态文字。
   },
 ];

@@ -8,7 +8,7 @@ export default function SiteDashboard() {
   const [uptimeStr, setUptimeStr] = useState("");
 
   const START_DATE = new Date(
-    siteConfig.buildDate || "2026-05-07T12:00:00"
+    siteConfig.buildDate
   ).getTime();
 
   useEffect(() => {
@@ -23,7 +23,12 @@ export default function SiteDashboard() {
         })
       );
 
-      const diff = now.getTime() - START_DATE;
+      // 建站时间未填写或格式无效时，不显示错误的运行天数。
+      if (!Number.isFinite(START_DATE)) {
+        setUptimeStr("待填写建站时间");
+        return;
+      }
+      const diff = Math.max(0, now.getTime() - START_DATE);
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -48,7 +53,7 @@ export default function SiteDashboard() {
         <div className="flex items-center gap-2 w-full md:w-auto justify-center md:justify-start">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span>
-            系统已稳定运行：
+            建站时长：
             <span className="text-indigo-600 dark:text-indigo-400 font-black">
               {uptimeStr}
             </span>

@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/siteConfig";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -94,7 +95,7 @@ export default function PostCard({ post, index }: PostCardProps) {
             {/* 封面图 */}
             <div className="relative aspect-[16/10] w-full overflow-hidden">
               <Image
-                src={post.cover || "/images/default-cover.jpg"}
+                src={post.cover || siteConfig.defaultPostCover}
                 alt={post.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

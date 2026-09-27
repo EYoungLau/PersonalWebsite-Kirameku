@@ -14,6 +14,7 @@ const fadeIn = {
   show: { opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 20 } },
 };
 
+// 替换：下面的初始示例文本可按你的需要修改。
 const DEFAULT_MD = `# 📝 在线 Markdown 编辑器
 
 实时预览，所见即所得。
@@ -32,7 +33,7 @@ const DEFAULT_MD = `# 📝 在线 Markdown 编辑器
 function hello(name) {
   console.log(\`Hello, \${name}!\`);
 }
-hello("Kirameku");
+hello("你的网站名称");
 \`\`\`
 
 行内代码 \`const x = 42\` 也可以。
@@ -56,7 +57,7 @@ hello("Kirameku");
 
 ### 链接与图片
 
-[Kirameku 博客](https://example.com)
+[你的网站名称 博客](https://example.com)
 
 ### 数学公式（行内）
 

@@ -12,8 +12,6 @@ import {
   ResponsiveContainer, PieChart, Pie, Cell, Legend,
 } from "recharts";
 import { siteConfig } from "@/siteConfig";
-import { postsData } from "@/data/posts";
-import { chattersData } from "@/data/chatters";
 import { getPosts, getPostsCount, type PostItem } from "@/app/api/posts";
 import { getChatters, getChattersCount, type ChatterItem } from "@/app/api/chatters";
 import { getMessages } from "@/app/api/messages";
@@ -21,7 +19,8 @@ import { getAlbums } from "@/app/api/albums";
 
 /* ── helpers ── */
 function getDaysSince(dateStr: string) {
-  return Math.floor((Date.now() - new Date(dateStr).getTime()) / 864e5);
+  const start = new Date(dateStr).getTime();
+  return Number.isFinite(start) ? Math.max(0, Math.floor((Date.now() - start) / 864e5)) : 0;
 }
 
 function AnimatedNumber({ target, duration = 1500 }: { target: number; duration?: number }) {
@@ -50,6 +49,7 @@ function AnimatedNumber({ target, duration = 1500 }: { target: number; duration?
 }
 
 /* ── data ── */
+// 替换：可在此填写你喜欢的语录及出处。
 const quotes = [
   { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
   { text: "过早优化是万恶之源。", author: "Donald Knuth" },
@@ -59,21 +59,14 @@ const quotes = [
   { text: "世界上最危险的一句话就是：一直都是这样做的。", author: "Grace Hopper" },
 ];
 
+// 替换：按你实际使用的技术调整展示列表；这里只列出模板使用的前端技术。
 const techStack = [
-  { name: "Next.js 15", color: "#0ea5e9", side: "前端" },
+  { name: "Next.js 16", color: "#0ea5e9", side: "前端" },
   { name: "React 19", color: "#22d3ee", side: "前端" },
   { name: "Tailwind 4", color: "#2dd4bf", side: "前端" },
   { name: "TypeScript", color: "#3b82f6", side: "前端" },
   { name: "Framer Motion", color: "#ec4899", side: "前端" },
-  { name: "FastAPI", color: "#009688", side: "后端" },
-  { name: "SQLModel", color: "#ef4444", side: "后端" },
-  { name: "PostgreSQL", color: "#336791", side: "后端" },
-  { name: "Uvicorn", color: "#1e293b", side: "后端" },
 ];
-
-const recentPosts = [...postsData.slice(0, 3), ...chattersData.slice(0, 3)]
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 6);
 
 /* ── animation ── */
 const container = {
@@ -185,7 +178,7 @@ export default function GardenPage() {
       <motion.div variants={fadeIn} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <div>
           <h1 className="text-lg font-bold text-slate-800 dark:text-white">仪表盘</h1>
-          <p className="text-xs text-slate-400">欢迎回来，这里是星港的数据概览</p>
+          <p className="text-xs text-slate-400">欢迎回来，这里是{siteConfig.garden.title}的数据概览</p>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-400">
           <Clock className="w-3.5 h-3.5" />
@@ -351,7 +344,7 @@ export default function GardenPage() {
           {/* divider */}
           <div className="border-t border-slate-200/50 dark:border-white/5" />
 
-          {/* fun facts */}
+          {/* 替换：下方趣味数据的 label 和 value 可改成你的个人偏好。 */}
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Heart className="w-4 h-4 text-rose-500" />
@@ -359,10 +352,10 @@ export default function GardenPage() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { icon: Coffee, label: "咖啡", value: "∞", color: "text-amber-500" },
-                { icon: Zap, label: "修 Bug", value: "数不清", color: "text-yellow-500" },
-                { icon: Heart, label: "热爱", value: "100%", color: "text-rose-500" },
-                { icon: Music, label: "BGM", value: "循环", color: "text-violet-500" },
+                { icon: Coffee, label: "咖啡", value: "待填写", color: "text-amber-500" },
+                { icon: Zap, label: "修 Bug", value: "待填写", color: "text-yellow-500" },
+                { icon: Heart, label: "热爱", value: "待填写", color: "text-rose-500" },
+                { icon: Music, label: "BGM", value: "待填写", color: "text-violet-500" },
               ].map((f) => (
                 <div key={f.label} className="flex items-center gap-2 px-2.5 py-2 rounded-lg bg-slate-100/50 dark:bg-slate-700/30">
                   <f.icon className={`w-3.5 h-3.5 ${f.color} shrink-0`} />
@@ -380,7 +373,7 @@ export default function GardenPage() {
       {/* ── bottom bar ── */}
       <motion.div variants={fadeIn} className="text-center py-2">
         <p className="text-[10px] text-slate-400 dark:text-slate-600">
-          悄悄告诉你，这个页面的暗号是 5201314
+          欢迎探索{siteConfig.garden.title}
         </p>
       </motion.div>
     </motion.div>

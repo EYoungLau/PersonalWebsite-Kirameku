@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { siteConfig } from "@/siteConfig";
 import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
@@ -8,7 +9,7 @@ export default function SearchBar() {
   const [value, setValue] = useState("");
 
   function handleSubmit() {
-    if (value.trim() === "5201314") {
+    if (siteConfig.garden.entryCode && value.trim() === siteConfig.garden.entryCode) {
       localStorage.setItem("garden-unlock", "true");
       router.push("/garden");
       setValue("");

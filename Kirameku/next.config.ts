@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+// 替换：在 .env.local 中设置你自己的后端地址，不带 /api 或末尾斜杠。
+const backendUrl = process.env.BACKEND_URL || "http://127.0.0.1:8000";
+
 const nextConfig: NextConfig = {
   compress: true,
 
@@ -7,15 +10,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://127.0.0.1:8000/api/:path*",
+        destination: `${backendUrl}/api/:path*`,
       },
       {
         source: "/uploads/:path*",
-        destination: "http://127.0.0.1:8000/uploads/:path*",
-      },
-      {
-        source: "/reader3/:path*",
-        destination: `${process.env.NOVEL_API_URL || "http://localhost:8085"}/reader3/:path*`,
+        destination: `${backendUrl}/uploads/:path*`,
       },
     ];
   },
@@ -32,12 +31,10 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ["image/avif", "image/webp"],
+    // 替换：若使用自己的远程图片，在此添加对应域名；本地 /images/ 无需添加。
     remotePatterns: [
-      { protocol: "https", hostname: "static.hiromu.top" },
-      { protocol: "https", hostname: "hiromu520.oss-cn-beijing.aliyuncs.com" },
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
-      { protocol: "http", hostname: "wfqqreader-1252317822.image.myqcloud.com" },
     ],
   },
 };

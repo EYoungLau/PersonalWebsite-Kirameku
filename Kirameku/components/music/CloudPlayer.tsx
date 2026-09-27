@@ -15,7 +15,7 @@ export default function CloudPlayer() {
   const router = useRouter();
   const {
     currentSong, isPlaying, progress, currentTime, duration, currentLyric,
-    togglePlay, nextSong, prevSong, handleSeek, isLoading, saying, refreshSaying,
+    togglePlay, nextSong, prevSong, handleSeek, isLoading,
   } = useMusic();
 
   const [displayedLyric, setDisplayedLyric] = useState("");
@@ -58,23 +58,14 @@ export default function CloudPlayer() {
         onClick={() => router.push("/music")}
         className="h-full w-full rounded-3xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl p-6 flex flex-col items-center justify-center gap-4 min-h-[200px] md:min-h-[280px] cursor-pointer transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl group"
       >
-        <svg className="w-10 h-10 text-indigo-400 dark:text-indigo-500 opacity-60" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5 3.871 3.871 0 01-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5 3.871 3.871 0 01-2.748-1.179z" />
+        <svg className="w-10 h-10 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+          <path d="M9 18V5l12-3v13M9 9l12-3" />
+          <ellipse cx="6" cy="18" rx="3" ry="2" />
+          <ellipse cx="18" cy="15" rx="3" ry="2" />
         </svg>
-        <p
-          className="text-sm text-slate-700 dark:text-slate-200 font-semibold text-center leading-relaxed tracking-wide"
-          style={{ fontFamily: "Georgia, 'Noto Serif SC', serif" }}
-        >
-          {saying || "点击前往音乐页面"}
-        </p>
-        <button
-          type="button"
-          onClick={(e) => { e.stopPropagation(); refreshSaying(); }}
-          title="换一句"
-          className="text-xs text-slate-400 hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100"
-        >
-          换一句
-        </button>
+        <h3 className="text-base font-bold text-slate-800 dark:text-white">音乐</h3>
+        <p className="text-sm text-slate-500 dark:text-slate-400 text-center">暂无可播放的歌曲</p>
+        <span className="text-xs text-indigo-500 dark:text-indigo-400">前往音乐页面 →</span>
       </div>
     );
   }

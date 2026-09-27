@@ -13,6 +13,7 @@ const fadeIn = {
   show: { opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 20 } },
 };
 
+// 替换：下面的初始示例文本可按你的需要修改。
 const DEFAULT_CODE = `# 在线 Python 编辑器
 # 在这里写代码，点击运行按钮执行
 
@@ -31,7 +32,7 @@ print(f"平方数: {squares}")
 
 # 字典操作
 info = {
-    "博客": "Kirameku",
+    "博客": "你的网站名称",
     "语言": "Python",
     "运行环境": "WebAssembly (Pyodide)"
 }

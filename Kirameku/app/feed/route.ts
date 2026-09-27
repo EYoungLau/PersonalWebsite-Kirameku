@@ -5,9 +5,12 @@ import type { PostItem } from "@/app/api/posts";
 
 export const revalidate = 3600;
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = process.env.BACKEND_URL || "http://127.0.0.1:8000";
 
-const FEED_AUTHOR = `guh982719@gmail.com (${siteConfig.authorName})`;
+// RSS 作者与个人卡片共享配置；未填写邮箱时省略 author 元素。
+const FEED_AUTHOR = siteConfig.social.email
+  ? `${siteConfig.social.email} (${siteConfig.authorName})`
+  : "";
 
 interface PostDetail extends PostItem {
   content: string;
@@ -98,7 +101,7 @@ async function generateItem(
       <description><![CDATA[${post.description || ""}]]></description>
       <content:encoded><![CDATA[${contentHtml}]]></content:encoded>
       <pubDate>${pubDate}</pubDate>
-      <author>${escapeXml(FEED_AUTHOR)}</author>${categories ? `\n${categories}` : ""}
+      ${FEED_AUTHOR ? `<author>${escapeXml(FEED_AUTHOR)}</author>` : ""}${categories ? `\n${categories}` : ""}
     </item>`;
 }
 

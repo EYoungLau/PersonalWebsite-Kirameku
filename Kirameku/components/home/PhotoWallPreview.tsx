@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/siteConfig";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,10 +23,10 @@ export default function PhotoWallPreview() {
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
-    const targetTitle = isMobile ? "2" : "1";
+    const targetTitle = isMobile ? siteConfig.photoWallAlbums.mobile : siteConfig.photoWallAlbums.desktop;
     getAlbums()
       .then((albums) => {
-        const target = albums.find((a) => a.title === targetTitle);
+        const target = targetTitle ? albums.find((a) => a.title === targetTitle) : albums[0];
         if (!target) return;
         return getAlbumPhotos(target.id);
       })
@@ -98,6 +99,7 @@ export default function PhotoWallPreview() {
         onClick={handleClick}
         className="rounded-3xl bg-white/40 dark:bg-slate-800/50 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl overflow-hidden min-h-[240px] md:min-h-[420px] h-full flex flex-col items-center justify-center gap-3 text-slate-400 dark:text-slate-500 cursor-pointer"
       >
+        <img src={siteConfig.photoWallImage} alt="照片墙占位图" className="w-full h-40 object-cover" />
         <svg
           className="w-12 h-12 opacity-40"
           fill="none"

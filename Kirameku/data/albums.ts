@@ -12,28 +12,15 @@ export interface Album {
   photos: Photo[];
 }
 
+// 本地数据格式示例；当前照片墙从后端 /api/albums 读取，不会自动加载此数组。
+// 替换：如需自行接入本地数据，可取消注释并填写你的相册。
 export const albums: Album[] = [
-  {
-    id: "spring-2026",
-    title: "2026 春日影像",
-    description: "记录这个春天的美好瞬间",
-    cover: "https://picsum.photos/seed/spring26/800/600",
-    date: "2026.03",
-    photos: [
-      { url: "https://picsum.photos/seed/s1/800/600", caption: "樱花盛开" },
-      { url: "https://picsum.photos/seed/s2/800/600", caption: "西湖落日" },
-      { url: "https://picsum.photos/seed/s3/800/600", caption: "校园一角" },
-    ],
-  },
-  {
-    id: "lab-life",
-    title: "实验室日常",
-    description: "科研人的苦与乐",
-    cover: "https://picsum.photos/seed/lab/800/600",
-    date: "2026.02",
-    photos: [
-      { url: "https://picsum.photos/seed/l1/800/600", caption: "分子模型" },
-      { url: "https://picsum.photos/seed/l2/800/600", caption: "深夜实验室" },
-    ],
-  },
+  // {
+  //   id: "your-album",
+  //   title: "你的相册标题",
+  //   description: "你的相册描述",
+  //   cover: "/images/cover-placeholder.svg",
+  //   date: "2026.01", // 替换：展示用日期。
+  //   photos: [{ url: "/images/cover-placeholder.svg", caption: "你的照片说明" }],
+  // },
 ];

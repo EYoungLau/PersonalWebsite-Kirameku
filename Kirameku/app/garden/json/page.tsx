@@ -8,8 +8,9 @@ const fadeIn = {
   show: { opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 20 } },
 };
 
+// 替换：下面的初始示例文本可按你的需要修改。
 const EXAMPLE_JSON = `{
-  "blog": "Kirameku",
+  "blog": "你的网站名称",
   "version": "1.0",
   "features": [
     "文章系统",

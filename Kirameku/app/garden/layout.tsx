@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { siteConfig } from "@/siteConfig";
 import { usePathname, redirect } from "next/navigation";
 import {
   ArrowLeft, LayoutDashboard, MapPin, Orbit, CloudRain, User,
@@ -68,10 +69,10 @@ export default function GardenLayout({
             </div>
             <div>
               <h1 className="text-sm font-bold text-slate-800 dark:text-white">
-                星港
+                {siteConfig.garden.title}
               </h1>
               <p className="text-[10px] text-slate-400 dark:text-slate-500">
-                Star Harbor
+                {siteConfig.garden.subtitle}
               </p>
             </div>
           </div>
@@ -119,7 +120,7 @@ export default function GardenLayout({
               </svg>
             </div>
             <span className="text-sm font-bold text-slate-800 dark:text-white">
-              星港
+              {siteConfig.garden.title}
             </span>
           </div>
           <div className="w-10" />
