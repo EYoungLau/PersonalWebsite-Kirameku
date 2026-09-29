@@ -37,11 +37,11 @@ export const siteConfig = {
 
   // 替换：填你的真实账号或链接；留空会隐藏入口，避免指向别人的账号。
   social: {
-    linkedin: "4", // 替换：完整 LinkedIn 主页链接，例如 https://www.linkedin.com/in/你的用户名/；留空隐藏。
-    github: "1", // 例如 https://github.com/你的用户名
-    email: "3", // 例如 your-email@example.com，不需要 mailto: 前缀；RSS 也使用此邮箱。
-    qq: "4", // 你的 QQ 号码。
-    wechat: "5", // 你的微信号，悬停图标可查看。
+    linkedin: "https://www.linkedin.com/in/yiyang-liu-715913386", // 替换：完整 LinkedIn 主页链接，例如 https://www.linkedin.com/in/你的用户名/；留空隐藏。
+    github: "https://github.com/EYoungLau", // 例如 https://github.com/你的用户名
+    email: "lyiyang2006@gmail.com", // 例如 your-email@example.com，不需要 mailto: 前缀；RSS 也使用此邮箱。
+    qq: "3296736011", // 你的 QQ 号码。
+    wechat: "EYoungLau", // 你的微信号，悬停图标可查看。
   },
 
   buildDate: "2026-09-27T00:00:00+08:00", // 替换：建站时间，例如 2026-01-01T00:00:00+08:00；留空显示「待填写」。
