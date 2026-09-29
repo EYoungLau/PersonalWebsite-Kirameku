@@ -37,6 +37,75 @@ export const siteConfig = {
   cloudMusicPlaylistId: "",
   cloudMusicIds: [] as string[],
 
+    // 自定义歌单：有歌曲时优先使用服务器上的音频。
+  localMusic: [
+    {
+      id: "1387548489",
+      title: "California",
+      artist: "Lana Del Rey",
+    },
+    {
+      id: "36270426",
+      title: "来自天堂的魔鬼",
+      artist: "G.E.M.邓紫棋",
+    },
+    {
+      id: "1378491298",
+      title: "愛にできることはまだあるかい",
+      artist: "RADWIMPS",
+    },
+    {
+      id: "1984758339",
+      title: "すずめ feat.十明",
+      artist: "RADWIMPS、十明",
+    },
+    {
+      id: "545884135",
+      title: "Shotgun",
+      artist: "George Ezra",
+    },
+    {
+      id: "33728453",
+      title: "Drive",
+      artist: "Oh Wonder",
+    },
+    {
+      id: "27731176",
+      title: "模特",
+      artist: "李荣浩",
+    },
+    {
+      id: "426881506",
+      title: "なんでもないや (movie ver.)",
+      artist: "RADWIMPS",
+    },
+    {
+      id: "426881480",
+      title: "夢灯籠",
+      artist: "RADWIMPS",
+    },
+    {
+      id: "64833",
+      title: "沙龙",
+      artist: "陈奕迅",
+    },
+    {
+      id: "64293",
+      title: "苦瓜",
+      artist: "陈奕迅",
+    },
+    {
+      id: "27483202",
+      title: "任我行",
+      artist: "陈奕迅",
+    },
+  ].map((song) => ({
+    ...song,
+    src: `/uploads/music/${song.id}.mp3`,
+    cover: "",
+    lrcUrl: `/uploads/music/${song.id}.lrc`,
+  })),
+
   // 替换：默认同源请求，通过 next.config.ts 转发到你的后端。
   // 如需浏览器跨域直连，在 .env.local 中填写 NEXT_PUBLIC_API_URL。
   apiBaseUrl: process.env.NEXT_PUBLIC_API_URL || "",
