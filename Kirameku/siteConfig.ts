@@ -13,15 +13,21 @@ export const siteConfig = {
   },
 
   // 替换：图片放在 public/images/ 下，路径以 /images/ 开头（不含 public）。
-  avatarUrl: "/images/avatar-placeholder.svg",
-  aboutCover: "/images/cover-placeholder.svg",
-  defaultPostCover: "/images/cover-placeholder.svg",
-  photoWallImage: "/images/cover-placeholder.svg",
+  avatarUrl: "/uploads/avatar.png",
+  aboutCover: "/uploads/SetUpImage/AboutMe.jpg",
+  defaultPostCover: "/uploads/SetUpImage/AboutMe.jpg",
+  photoWallImage: "/uploads/SetUpImage/AboutMe.jpg",
 
   // 替换：false 使用下方图片，true 使用渐变；可自由增加背景图片路径。
   useGradient: false,
   themeColors: ["#a18cd1", "#fbc2eb", "#a1c4fd", "#c2e9fb"],
-  bgImages: ["/images/background-placeholder.svg"],
+  bgImages: ["/uploads/SetUpImage/1.png",
+    "/uploads/SetUpImage/2.png",
+    "/uploads/SetUpImage/3.png",
+    "/uploads/SetUpImage/4.png",
+    "/uploads/SetUpImage/5.png",
+    "/uploads/SetUpImage/6.png",
+  ],
 
   // 替换：填写你在后端创建的相册标题；留空时首页使用第一个相册。
   photoWallAlbums: { desktop: "", mobile: "" },
