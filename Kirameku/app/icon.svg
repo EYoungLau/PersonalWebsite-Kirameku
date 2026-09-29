@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#818cf8"/>
-  <path d="M14 30 32 14 50 30v21H37V37H27v14H14Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="白色背景上的黑色大写字母 E">
+  <rect width="512" height="512" fill="#fff"/>
+  <path d="M142 98H370V164H216V222H344V288H216V348H370V414H142Z" fill="#000"/>
 </svg>

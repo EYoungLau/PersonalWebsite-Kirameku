@@ -21,12 +21,12 @@ export const siteConfig = {
   // 替换：false 使用下方图片，true 使用渐变；可自由增加背景图片路径。
   useGradient: false,
   themeColors: ["#a18cd1", "#fbc2eb", "#a1c4fd", "#c2e9fb"],
-  bgImages: ["/uploads/SetUpImage/1.png",
-    "/uploads/SetUpImage/2.png",
-    "/uploads/SetUpImage/3.png",
-    "/uploads/SetUpImage/4.png",
-    "/uploads/SetUpImage/5.png",
-    "/uploads/SetUpImage/6.png",
+  bgImages: ["/uploads/SetUpImage/1.webp",
+    "/uploads/SetUpImage/2.webp",
+    "/uploads/SetUpImage/3.webp",
+    "/uploads/SetUpImage/4.webp",
+    "/uploads/SetUpImage/5.webp",
+    "/uploads/SetUpImage/6.webp",
   ],
 
   // 替换：填写你在后端创建的相册标题；留空时首页使用第一个相册。
