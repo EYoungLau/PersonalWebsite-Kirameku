@@ -1,12 +1,80 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "./projectsData";
+import type { Project } from "./projectsData";
 import { FolderGit2, ExternalLink } from "lucide-react";
+
+type ProjectFromApi = {
+  id: number;
+  name: string;
+  description: string;
+  long_description: string;
+  cover_image: string;
+  tech_stack: string[];
+  link_github: string;
+  link_gitee: string;
+  link_live: string;
+  link_docs: string;
+  is_featured: boolean;
+  status: string;
+  status_label: string;
+};
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadProjects() {
+      try {
+        const response = await fetch("/api/projects", {
+          signal: controller.signal,
+          cache: "no-store",
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data: ProjectFromApi[] = await response.json();
+        setProjects(
+          data.map((item) => ({
+            id: String(item.id),
+            name: item.name,
+            description: item.description || "",
+            longDescription: item.long_description || "",
+            coverImage: item.cover_image || "",
+            techStack: item.tech_stack || [],
+            links: {
+              github: item.link_github || "",
+              gitee: item.link_gitee || "",
+              live: item.link_live || "",
+              docs: item.link_docs || "",
+            },
+            featured: item.is_featured,
+            status: (
+              ["active", "archived", "developing"].includes(item.status)
+                ? item.status
+                : "developing"
+            ) as Project["status"],
+            statusLabel: item.status_label || "",
+          }))
+        );
+        setLoadError(false);
+      } catch (error) {
+        if (controller.signal.aborted) return;
+        console.error("加载项目失败：", error);
+        setLoadError(true);
+      } finally {
+        if (!controller.signal.aborted) setLoading(false);
+      }
+    }
+
+    loadProjects();
+    return () => controller.abort();
+  }, []);
 
   const filtered = useMemo(() => {
     if (!searchQuery.trim()) return projects;
@@ -17,7 +85,7 @@ export default function ProjectsPage() {
         p.description.toLowerCase().includes(q) ||
         p.techStack.some((t) => t.toLowerCase().includes(q))
     );
-  }, [searchQuery]);
+  }, [projects, searchQuery]);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12 relative z-10">
@@ -142,13 +210,17 @@ export default function ProjectsPage() {
           ))}
         </AnimatePresence>
 
-        {filtered.length === 0 && (
+        {!loading && filtered.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="col-span-full text-center py-12 md:py-20 text-slate-600 dark:text-slate-300 font-medium text-xs md:text-sm"
           >
-            没有找到匹配 [{searchQuery}] 的项目...
+            {loadError
+  ? "项目加载失败，请刷新页面重试"
+  : searchQuery
+    ? `没有找到匹配 [${searchQuery}] 的项目...`
+    : "暂时还没有项目"}
           </motion.div>
         )}
       </motion.div>
